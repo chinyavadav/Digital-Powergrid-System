@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      DPGS SURVEY
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="settings()">
+        <ion-icon name="cog"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding style="background-image:url('assets/imgs/bg1.jpg');background-repeat: no-repeat;background-size: 100% 100%">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-2></ion-col>
+      <ion-col col-8 style="margin-left: auto;margin-right: auto;display: block;">
+        <img src="assets/imgs/logo.png" style="width:100%;height:auto;">
+      </ion-col>
+      <ion-col col-2></ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-list>
+    <ion-item>
+      <ion-icon name="contact" item-start></ion-icon>
+      <h2>{{ session.fullname }}</h2>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="call" item-start></ion-icon>
+      <h2>0{{ session.phoneno }}</h2>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="map" item-start></ion-icon>
+      <h2>{{ session.district }}</h2>
+    </ion-item>
+  </ion-list>
+	<button ion-button block (click)="captureNode()">Capture Node</button>
+  <ion-fab left bottom>
+    <button ion-fab color="primary" (click)="showNodes()">
+      <ion-icon name="share"></ion-icon>
+    </button>
+  </ion-fab>
+  <ion-fab right bottom>
+    <button ion-fab color="primary" (click)="showMap()">
+      <ion-icon name="map"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

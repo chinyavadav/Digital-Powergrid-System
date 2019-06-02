@@ -1,0 +1,7 @@
+{
+  "name": "zetdc",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

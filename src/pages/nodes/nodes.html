@@ -1,0 +1,41 @@
+<!--
+  Generated template for the TripsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Captured Nodes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<ion-list>
+	<ion-item-sliding  *ngFor="let node of nodes" #item>
+		<ion-item>
+      <ion-icon name="assets/pond.png" item-start></ion-icon>
+			<h2><b>{{ node.nodeType }}</b></h2>
+			<p>{{ node.timestamp | relativeTime }}</p>
+      <button ion-button outline item-end>
+          {{ node.poleMaterial }}</button>
+		</ion-item>
+		<ion-item-options>
+			<button ion-button color="danger" (click)="deleteNode(item,node)">
+			<ion-icon name="close"></ion-icon>Delete</button>
+		</ion-item-options>
+	</ion-item-sliding>
+</ion-list>
+  <ion-fab right bottom>
+    <button ion-fab color="danger" (click)="deleteAll()">
+      <ion-icon name="close"></ion-icon>
+    </button>
+  </ion-fab>
+  <ion-fab right bottom>
+    <button ion-fab color="success" (click)="uploadNodesConnections()">
+      <ion-icon name="cloud-upload"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

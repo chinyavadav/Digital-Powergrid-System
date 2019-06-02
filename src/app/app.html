@@ -1,0 +1,46 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-4>
+            <img src="assets/imgs/logo.png" style="width:100%;height:auto;">
+          </ion-col>
+          <ion-col col-8>
+            <br><ion-title text-center>Digital Power Grid<br>System</ion-title>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-header>
+ 
+  <ion-content padding>
+    <ion-list>
+    	<button menuClose ion-item detail-none>
+    		<ion-icon item-start name="home"></ion-icon> Home</button>
+    	<button menuClose ion-item detail-none (click)="openPage(0)">
+    		<ion-icon item-start name="chatbubbles"></ion-icon> Enquiries</button>
+      <button menuClose ion-item detail-none (click)="openPage(1)">
+        <ion-icon item-start name="warning"></ion-icon> Report Fault</button>
+    	<ion-item-divider>Account</ion-item-divider>
+      <ion-item>
+        <ion-icon item-start name="contact"></ion-icon>
+        <h2><b>{{ global.dispSession.fullname }}</b></h2>
+        <hr/>
+        <h2>{{ global.dispSession.meterno }}</h2>
+      </ion-item>
+    	<button menuClose ion-item detail-none (click)="openPage(2)">
+    		<ion-icon item-start name="cog"></ion-icon> Settings</button>
+    	<button menuClose ion-item detail-none (click)="logout()">
+    		<ion-icon item-start name="log-out"></ion-icon> Logout</button>
+    </ion-list>
+   </ion-content>
+   	<ion-footer padding>
+  		<ion-label text-center>
+        	Zimbabwe Electricity Transmission and Distribution Company<br> App v.1.0.2
+  		</ion-label>	
+	</ion-footer>
+  </ion-menu>
+ 
+<!-- main navigation -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

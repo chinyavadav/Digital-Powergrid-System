@@ -1,0 +1,51 @@
+<!--
+  Generated template for the CaptureNodePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Capture Node</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="background-image:url('assets/imgs/bg1.jpg');background-repeat: no-repeat;background-size: 100% 100%">
+    <form (ngSubmit)="captureNode()" [formGroup]="captureNodeForm">
+      <ion-list no-lines>
+        <ion-item style="background:none;">
+          <ion-label floating>Node Type</ion-label>
+          <ion-select formControlName="nodeType">
+            <ion-option *ngFor="let type of types" [value]="type">{{ type }}</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item style="background:none;">
+          <ion-label floating>Pole Material</ion-label>
+          <ion-select formControlName="poleMaterial">
+            <ion-option *ngFor="let material of poleMaterials" [value]="material">{{ material }}</ion-option>
+          </ion-select>
+        </ion-item>        
+        <ion-item style="background:none;">
+          <ion-label floating>Poles</ion-label>
+          <ion-input type="number" placeholder="Poles" value="1" formControlName="poles"></ion-input>
+        </ion-item>
+        <ion-item style="background:none;">
+          <ion-label floating>Branches</ion-label>
+          <ion-input type="number" placeholder="Branches" value="1" formControlName="branches"></ion-input>
+        </ion-item>
+        <ion-item style="background:none;">
+          <ion-label floating>Comment</ion-label>
+          <ion-input type="text" placeholder="Comment" formControlName="comment"></ion-input>
+        </ion-item>
+        <ion-item-divider style="background:none;"></ion-item-divider>
+        <ion-fab right bottom>
+          <button ion-fab color="primary" type="submit">
+            <ion-icon name="compass"></ion-icon>
+          </button>
+        </ion-fab>   
+      </ion-list>      
+    </form>
+  </ion-content>

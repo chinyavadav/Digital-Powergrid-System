@@ -1,0 +1,34 @@
+<!--
+  Generated template for the ReportsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Reported Faults</ion-title>
+  </ion-navbar>
+  <ion-toolbar no-border-top color="primary">
+    <ion-searchbar showCancelButton autocomplete="on" color="primary" (ionInput)="filterReports($event)" placeholder="Filter by Report Type"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+  	<ion-item-sliding  *ngFor="let report of reports" #item>
+  		<ion-item>
+        <ion-icon name="warning" item-start></ion-icon>
+  			<h2><b>{{ report.fldtype }}</b></h2>
+  			<p>{{ report.fldtimestamp | relativeTime }}</p>
+        <button ion-button outline item-end text-capitalize>
+            {{ report.fldstatus }}</button>
+  		</ion-item>
+  		<ion-item-options>
+  			<button ion-button color="danger" (click)="recall(item,report)">
+  			<ion-icon name="close"></ion-icon>Recall</button>
+  		</ion-item-options>
+  	</ion-item-sliding>
+	</ion-list>
+</ion-content>

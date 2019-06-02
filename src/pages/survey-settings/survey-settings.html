@@ -1,0 +1,31 @@
+<!--
+  Generated template for the PassengerProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Change Password</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<form (ngSubmit)="update()" [formGroup]="passwordForm">
+    <ion-list no-lines>
+      <ion-item>
+      	<ion-label floating>Set Password</ion-label>
+        <ion-input placeholder="Set Password" type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-item>
+      	<ion-label floating>Verify Password</ion-label>
+        <ion-input placeholder="Verify Password" type="password" formControlName="verifypassword"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-input type="hidden" formControlName="phoneno" [value]="global.session.fldphoneno"></ion-input>
+    <button style="margin-top: 15px;height: 35px;font-size: 14px;background: #10ABF4;" ion-button  block  type="submit">Update Password</button>
+  </form>
+</ion-content>

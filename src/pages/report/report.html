@@ -1,0 +1,45 @@
+<!--
+  Generated template for the CaptureNodePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Report Fault</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="background-image:url('assets/imgs/bg1.jpg');background-repeat: no-repeat;background-size: 100% 100%">
+  <ion-grid>
+    <ion-row>
+        <ion-col col-2></ion-col>
+        <ion-col col-8 style="margin-left: auto;margin-right: auto;display: block;">
+          <img src="assets/imgs/logo.png" style="width:100%;height:auto;">
+        </ion-col>
+        <ion-col col-2></ion-col>
+    </ion-row>
+  </ion-grid>
+    <form (ngSubmit)="reportFault()" [formGroup]="reportFaultForm">
+      <ion-list no-lines>
+        <ion-item style="background:none;">
+          <ion-label floating>Fault Type</ion-label>
+          <ion-select formControlName="type">
+            <ion-option *ngFor="let type of types" [value]="type">{{ type }}</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item style="background:none;">
+          <ion-label floating>Comment</ion-label>
+          <ion-input type="text" placeholder="Comment" formControlName="comment"></ion-input>
+        </ion-item>
+        <ion-item-divider style="background:none;"></ion-item-divider>
+        <ion-input type="hidden" formControlName="meterno" value="{{ global.session.fldmeterno }}"></ion-input>
+        <ion-input type="hidden" formControlName="lat" value="{{ global.session.fldlatitude }}"></ion-input>
+        <ion-input type="hidden" formControlName="lng" value="{{ global.session.fldlongitude }}"></ion-input>
+        <button ion-button block type="submit">Report Fault</button>
+      </ion-list>      
+    </form>
+  </ion-content>

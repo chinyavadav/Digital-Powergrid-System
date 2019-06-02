@@ -1,0 +1,52 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Enquiries</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <div class="message-wrap">
+
+    <div *ngFor="let msg of chatService.msgList" class="message" [class.left]=" msg.box === 'inbox'"
+         [class.right]=" msg.box === 'outbox'">
+      <img class="user-img" *ngIf="msg.box === 'inbox'" src="assets/icon/icon.png" alt="">
+      <img class="user-img" *ngIf="msg.box === 'outbox'" src="assets/icon/user.jpg" alt="">
+      <ion-spinner name="dots" *ngIf="msg.status === 'pending'"></ion-spinner>
+      <div class="msg-detail">
+        <div class="msg-info">
+          <p *ngIf="msg.box === 'inbox'">
+            Customer Services&nbsp;&nbsp;&nbsp;{{msg.timestamp | relativeTime}}</p>
+          <p *ngIf="msg.box === 'outbox'">
+            {{ global.session.fldfullname }}&nbsp;&nbsp;&nbsp;{{msg.timestamp | relativeTime}}</p>
+        </div>
+        <div class="msg-content">
+          <span class="triangle"></span>
+          <p class="line-breaker ">{{msg.message}}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</ion-content>
+
+<ion-footer no-border [style.height]="showEmojiPicker ? '255px' : '55px'">
+  <div class="input-wrap">
+    <button ion-button clear icon-only item-right (click)="switchEmojiPicker()">
+      <ion-icon name="md-happy"></ion-icon>
+    </button>
+    <textarea #chat_input
+              placeholder="Text Input"
+              [(ngModel)]="editorMsg"
+              (keyup.enter)="sendMsg()"
+              (focusin)="onFocus()">
+    </textarea>
+    <button ion-button clear icon-only item-right (click)="sendMsg()">
+      <ion-icon name="ios-send" ios="ios-send" md="md-send"></ion-icon>
+    </button>
+  </div>
+  <!--emoji-picker [(ngModel)]="editorMsg"></emoji-picker-->
+</ion-footer>
